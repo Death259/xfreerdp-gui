@@ -106,7 +106,7 @@
       else
           GEOMETRY=""
       fi  
-      varLog=$(echo $FORMULARY | awk -F '|' '{ print $12 }')
+      varLog=$(echo $FORMULARY | awk -F '|' '{ print $13 }')
         
       RES=$(xfreerdp                            \
                       /v:"$SERVER":$PORT        \
