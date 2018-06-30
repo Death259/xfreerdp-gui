@@ -83,6 +83,7 @@
           --field="BPP":CBE $BPP "24,16,32,"                                                                                  \
           --field="Name of Shared Directory" $NAMEDIR "Shared"                                                                \
           --field="Shared Directory" $DIR $HOME/Downloads                                                                     \
+          --field="Remote Gateway" $REMOTEGATEWAY                                                                     \
           --field="Other Options" $OPTIONS ""                                                                                 \
           --field="Full Screen":CHK $varFull                                                                                  \
           --field="Show Log":CHK $varLog                                                                                      \
@@ -97,8 +98,9 @@
       BPP=$(echo $FORMULARY        | awk -F '|' '{ print $7 }')
       NAMEDIR=$(echo $FORMULARY    | awk -F '|' '{ print $8 }')
       DIR=$(echo $FORMULARY        | awk -F '|' '{ print $9 }')
-      OPTIONS=$(echo $FORMULARY    | awk -F '|' '{ print $10 }')
-      varFull=$(echo $FORMULARY    | awk -F '|' '{ print $11 }')
+      REMOTEGATEWAY=$(echo $FORMULARY        | awk -F '|' '{ print $10 }')
+      OPTIONS=$(echo $FORMULARY    | awk -F '|' '{ print $11 }')
+      varFull=$(echo $FORMULARY    | awk -F '|' '{ print $12 }')
       if [ "$varFull" = "TRUE" ]; then
           GEOMETRY="/f"
       else
@@ -116,6 +118,7 @@
                       /p:"$PASSWORD"            \
                       /bpp:$BPP                 \
                       /size:$RESOLUTION         \
+                      /g:$REMOTEGATEWAY         \
                       /sound                    \
                       /tsmf                     \
                       /from-stdin               \
